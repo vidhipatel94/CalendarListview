@@ -55,7 +55,7 @@ public class SimpleMonthAdapter extends RecyclerView.Adapter<SimpleMonthAdapter.
 		mContext = context;
 		mController = datePickerController;
 		init();
-	}
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)

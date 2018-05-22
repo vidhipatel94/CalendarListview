@@ -34,11 +34,7 @@ public class DayPickerView extends RecyclerView
     protected Context mContext;
 	protected SimpleMonthAdapter mAdapter;
 	private DatePickerController mController;
-    protected int mCurrentScrollState = 0;
-	protected long mPreviousScrollPosition;
-	protected int mPreviousScrollState = 0;
     private TypedArray typedArray;
-    private OnScrollListener onScrollListener;
 
     public DayPickerView(Context context)
     {
@@ -73,22 +69,6 @@ public class DayPickerView extends RecyclerView
         setLayoutManager(new LinearLayoutManager(paramContext));
 		mContext = paramContext;
 		setUpListView();
-
-        onScrollListener = new OnScrollListener()
-        {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy)
-            {
-                super.onScrolled(recyclerView, dx, dy);
-                final SimpleMonthView child = (SimpleMonthView) recyclerView.getChildAt(0);
-                if (child == null) {
-                    return;
-                }
-
-                mPreviousScrollPosition = dy;
-                mPreviousScrollState = mCurrentScrollState;
-            }
-        };
 	}
 
 
@@ -100,8 +80,7 @@ public class DayPickerView extends RecyclerView
 	}
 
 	protected void setUpListView() {
-		setVerticalScrollBarEnabled(false);
-		setOnScrollListener(onScrollListener);
+        setVerticalScrollBarEnabled(false);
 		setFadingEdgeLength(0);
 	}
 

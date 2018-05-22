@@ -2,6 +2,8 @@ package com.andexert.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +12,7 @@ import com.andexert.calendarlistview.library.DayPickerView;
 import com.andexert.calendarlistview.library.SimpleMonthAdapter;
 
 
-public class MainActivity extends Activity implements com.andexert.calendarlistview.library.DatePickerController {
+public class MainActivity extends AppCompatActivity implements com.andexert.calendarlistview.library.DatePickerController {
 
     private DayPickerView dayPickerView;
 
@@ -22,7 +24,6 @@ public class MainActivity extends Activity implements com.andexert.calendarlistv
         dayPickerView = (DayPickerView) findViewById(R.id.pickerView);
         dayPickerView.setController(this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,7 +47,7 @@ public class MainActivity extends Activity implements com.andexert.calendarlistv
     @Override
     public int getMaxYear()
     {
-        return 2015;
+        return 2019;
     }
 
     @Override
